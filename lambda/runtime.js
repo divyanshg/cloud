@@ -20,18 +20,19 @@ con.connect((err) => {
 
 app.set('subdomain offset', 1);
 
-app.get('/', (req, res) => {
+app.get('/:API', (req, res) => {
 
     var subDomains = req.subdomains;
+    var input = req.query;
 
-    con.query(`select * from cloudDB_apis where user = '${subDomains[1]}' and name = '${subDomains[0]}'`, async (err, api) => {
+    con.query(`select * from cloudDB_apis where user = '${subDomains[1]}' and name = '${subDomains[0]}' and api = '${req.params.API}'`, async (err, api) => {
         if (err) throw err;
 
         var input = req.query
         var userModule = require(`./${subDomains[1]}-${subDomains[0]}`);
         await userModule;
 
-        axios[api[0].method]("http://localhost:43401/number?min=10&max=20").then((response) => {
+        axios[api[0].method](`http://localhost:43401/${req.params.API}?min=${input.min}&max=${input.max}`).then((response) => {
 
             res.send(JSON.stringify(response.data))
 
