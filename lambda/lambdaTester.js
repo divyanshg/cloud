@@ -1,10 +1,9 @@
 'use strict'
 
-exports.runLambda = async (uModule, inputs, callback) => {
+exports.runLambda = (uModule, inputs, callback) => {
     try {
         
         const mod = require(`./${uModule}`)
-        await mod;
 
         return mod.handler(inputs, callback)
 
