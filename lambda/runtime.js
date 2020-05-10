@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
     var subDomains = req.subdomains;
 
-    con.query(`select * from cloudDB_apis where user = ${subDomains[1]} and name = ${subDomains[0]}`, async (err, api) => {
+    con.query(`select * from cloudDB_apis where user = '${subDomains[1]}' and name = '${subDomains[0]}'`, async (err, api) => {
         if (err) throw err;
 
         var input = req.query
