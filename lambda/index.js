@@ -3,7 +3,7 @@ const app = express()
 
 // Proxy request
 app.get('/number', async (req, res) => {
-    var input = req.params;
+    var input = req.query;
     
     var userEvent = {'max': input.max, 'min': input.min}
 
