@@ -1,8 +1,10 @@
 'use strict'
 
+var subdomain = require('express-subdomain');
 const express = require('express');
 const app = express()
 const mysql = require('mysql')
+var router = express.Router()
 
 const axios = require('axios')
 
@@ -20,7 +22,7 @@ con.connect((err) => {
 
 app.set('subdomain offset', 1);
 
-app.get('/:API', (req, res) => {
+router.get('/:API', (req, res) => {
 
     var subDomains = req.subdomains;
     var input = req.query;
@@ -61,6 +63,8 @@ app.get('/:API', (req, res) => {
     })
 
 })
+
+app.use(subdomain('*.*', router))
 
 app.listen(43400,() => {
     console.log("LAMBDA on port 3000");
