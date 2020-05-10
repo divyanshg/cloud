@@ -9,7 +9,7 @@ app.get('/number', async (req, res) => {
     
     var userEvent = {'max': input.max, 'min': input.min}
 
-    res.send(JSON.stringify(lambda.runLambda('sampleuserid-random-number-generator', userEvent, null)));
+    res.send(String(lambda.runLambda('sampleuserid-random-number-generator', userEvent, null)));
 })
 
 app.post('/string', (req,res) => {
