@@ -40,7 +40,7 @@ app.get('/:API', (req, res) => {
 
             inputs.forEach(inp => {
 
-                if(input[inp] == null || typeof input[inp] == 'undefined') res.send(JSON.stringify(`${inp} was not supplied.`))
+                if(input[inp] == null || typeof input[inp] == 'undefined') res.send(JSON.stringify(`${inp} was not provided.`))
                 query += `${inp}=${input[inp]}&`
 
             });
@@ -53,7 +53,7 @@ app.get('/:API', (req, res) => {
 
         axios[api[0].method](`http://localhost:43401/${req.params.API}?${query}`).then((response) => {
 
-            res.send(JSON.stringify(response.data))
+            res.send(response.data)
 
         }).catch((error) => {
 
