@@ -39,11 +39,8 @@ app.get('/:API', (req, res) => {
         inputs.forEach(inp => {
             query += `${inp}=${input[inp]}&`
         });
-
-        console.log(query)
-        
-
-        axios[api[0].method](`http://localhost:43401/${req.params.API}?min=${input.min}&max=${input.max}`).then((response) => {
+    
+        axios[api[0].method](`http://localhost:43401/${req.params.API}?${query}`).then((response) => {
 
             res.send(JSON.stringify(response.data))
 
