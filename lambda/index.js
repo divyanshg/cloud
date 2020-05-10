@@ -9,8 +9,8 @@ app.get('/number', async (req, res) => {
     
     var userEvent = {'max': input.max, 'min': input.min}
 
-    var lambdaOutput = lambda.runLambda('sampleuserid-random-number-generator', userEvent, null)
-    console.log(lambdaOutput)
+    var lambdaOutput = String(lambda.runLambda('sampleuserid-random-number-generator', userEvent, null))
+
     res.send(lambdaOutput);
 })
 
