@@ -5,7 +5,7 @@ const mysql = require('mysql')
 const axios = require('axios')
 
 var con = mysql.createConnection({
-    "host": "192.168.31.249:3306",
+    "host": "localhost",
     "user": "divyanshg21",
     "password": "potty_khale",
     "db": "fila_iot"
