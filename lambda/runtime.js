@@ -32,6 +32,8 @@ app.get('/:API', (req, res) => {
         var userModule = require(`./${subDomains[1]}-${subDomains[0]}`);
         await userModule;
 
+        console.log(JSON.parse(api[0].inputs))
+
         axios[api[0].method](`http://localhost:43401/${req.params.API}?min=${input.min}&max=${input.max}`).then((response) => {
 
             res.send(JSON.stringify(response.data))
