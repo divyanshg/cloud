@@ -40,8 +40,16 @@ app.get('/:API', (req, res) => {
 
             inputs.forEach(inp => {
 
-                if(input[inp] == null || typeof input[inp] == 'undefined') return res.send(JSON.stringify(`${inp} was not supplied.`))
-                query += `${inp}=${input[inp]}&`
+                if (input[inp] == null || typeof input[inp] == 'undefined') {
+
+                    res.send(JSON.stringify(`${inp} was not supplied.`))
+                    return
+
+                } else {
+
+                    query += `${inp}=${input[inp]}&`
+                
+                }
 
             });
 
