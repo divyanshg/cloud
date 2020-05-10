@@ -10,7 +10,7 @@ var con = mysql.createConnection({
     "host": "localhost",
     "user": "divyanshg21",
     "password": "potty_khale",
-    "db": "fila_iot"
+    "database": "fila_iot"
 })
 
 con.connect((err) => {
@@ -23,7 +23,7 @@ app.set('subdomain offset', 1);
 app.get('/', (req, res) => {
 
     var subDomains = req.subdomains;
-    
+
     con.query(`select * from cloudDB_apis where user = ${subDomains[1]} and name = ${subDomains[0]}`, async (err, api) => {
         if (err) throw err;
 
