@@ -7,6 +7,6 @@ exports.handler = function (event, callback) {
 
     const data = Math.floor(Math.random() * MAX) + MIN;
 
-    if(callback == null || callback == '') console.log(data)
+    if(callback == null || callback == '') console.log(String(data))
     callback(null, data);
 }
