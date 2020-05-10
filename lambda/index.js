@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const userModule = require('./sampleuserid-random-number-generator')
+const lambda = require('./lambdaTester')
 
 // Proxy request
 
@@ -9,7 +9,7 @@ app.get('/number', async (req, res) => {
     
     var userEvent = {'max': input.max, 'min': input.min}
 
-    res.send(JSON.stringify(userModule.handler(userEvent, null)));
+    res.send(JSON.stringify(lambda.runLambda('sampleuserid-random-number-generator', userEvent, null)));
 })
 
 app.post('/string', (req,res) => {

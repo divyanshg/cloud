@@ -1,20 +1,15 @@
 'use strict'
 
-const prompt = require('prompt-sync')();
-
-var uModule = prompt("function name : ");
-
-var testFunction = async () => {
+exports.runLambda = async (uModule, inputs, callback) => {
     try {
         
         const mod = require(`./${uModule}`)
         await mod;
 
-        console.log(mod.handler(JSON.parse(prompt("Input Object : ")), null, null))
+        return mod.handler(JSON.parse(inputs), null, callback)
 
     } catch (e) {
-        console.log("Cannot find function")
+       return "Cannot find function"
     }
 }
 
-testFunction()
