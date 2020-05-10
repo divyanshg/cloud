@@ -9,7 +9,7 @@ var testFunction = async () => {
     const mod = require(`./${uModule}`)
     await mod;
 
-    console.log(mod.handler(prompt("Input Object : ", null, null)))
+    console.log(mod.handler(prompt("Input Object : "), null, null))
     }
     catch(e){
         console.log("Cannot find function")
