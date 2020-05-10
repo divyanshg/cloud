@@ -12,9 +12,9 @@ app.get('/number', async (req, res) => {
     res.send(JSON.stringify(userModule.handler(userEvent, "something", null)));
 })
 
-app.post('/string', (req,res) => {
+app.get('/string', (req,res) => {
     var input = req.query
-    //console.log(`HELLO, ${input.firstName} ${input.lastName}`)
+    res.send(`HELLO, ${input.firstName} ${input.lastName}`)
 })
 
 app.listen(43401, () => {
