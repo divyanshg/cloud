@@ -29,9 +29,7 @@ app.get('/:API', (req, res) => {
         if (err) throw err;
 
         var input = req.query
-        var userModule = require(`./${subDomains[1]}-${subDomains[0]}`);
-        await userModule;
-
+        
         var inputs = JSON.parse(api[0].inputs)
 
         var query = ""
