@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-
+const userModule = require('./sampleuserid-random-number-generator')
 // Proxy request
 app.get('/number', async (req, res) => {
     var input = req.query;

@@ -30,12 +30,16 @@ app.get('/', (req, res) => {
         var input = req.query
         var userModule = require(`./${subDomains[1]}-${subDomains[0]}`);
         await userModule;
+
         axios[api[0].method]("http://localhost:43401/number?min=10&max=20").then((response) => {
+
             res.send(response)
+
         }).catch((error) => {
-            // handle error
+
             console.log(error);
-          })
+
+        })
     })
 
 })
