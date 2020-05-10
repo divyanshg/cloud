@@ -40,7 +40,7 @@ app.get('/:API', (req, res) => {
 
             inputs.forEach(inp => {
 
-                if(input[inp] == null || typeof input[inp] == 'undefined') res.send(`${inp} was not provided.`)
+                if(input[inp] == null || typeof input[inp] == 'undefined') res.send(`<h3><b style="color:red;">${inp}</b> was not provided.</h3>`)
                 query += `${inp}=${input[inp]}&`
 
             });
