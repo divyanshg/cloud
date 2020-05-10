@@ -55,7 +55,7 @@ app.get('/:API', (req, res) => {
 
         }).catch((error) => {
 
-            res.send(String(error.response))
+            res.send(JSON.stringify(error.response))
 
         })
     })
