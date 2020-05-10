@@ -38,7 +38,7 @@ app.get('/:API', (req, res) => {
 
             inputs.forEach(inp => {
 
-                if(input[inp] == null || typeof input[inp] == 'undefined') res.send(`<h3><b style="color:red;">${inp}</b> was not provided.</h3>`)
+                if(input[inp] == null || typeof input[inp] == 'undefined') res.send(`<h3><b style="color:red;">${inp}</b> was not provided.</h3><br><p style="color:red;">Undefined query input error.</p>`)
                 query += `${inp}=${input[inp]}&`
 
             });
