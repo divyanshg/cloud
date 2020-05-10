@@ -14,7 +14,7 @@ app.get('/number', async (req, res) => {
 
 app.get('/string', (req,res) => {
     var input = req.query
-    res.send("HELLO WORLD!!")
+    res.send(`HELLO, ${input.firstName} ${input.lastName}`)
 })
 
 app.listen(43401, () => {
