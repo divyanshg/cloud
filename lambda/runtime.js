@@ -40,13 +40,15 @@ app.get('/:API', (req, res) => {
 
             inputs.forEach(inp => {
 
+                if(input[inp] == null || typeof input[inp] == 'undefined') return res.send(JSON.stringify(`${inp} was not supplied.`))
                 query += `${inp}=${input[inp]}&`
+
             });
 
         } else {
 
             query = ''
-            
+
         }
 
         axios[api[0].method](`http://localhost:43401/${req.params.API}?${query}`).then((response) => {
