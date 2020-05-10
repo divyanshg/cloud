@@ -3,6 +3,7 @@
 const express = require('express');
 const app = express()
 const mysql = require('mysql')
+const vhost = require('vhost')
 
 const axios = require('axios')
 
@@ -18,7 +19,7 @@ con.connect((err) => {
     console.log("Database is connected!")
 })
 
-app.use(vhost('cloudAPI.com'))
+app.use(vhost('*.*.cloudAPI.com'))
 app.set('subdomain offset', 1);
 
 app.get('/:API', (req, res) => {
