@@ -37,12 +37,16 @@ app.get('/:API', (req, res) => {
         var query = ""
 
         if (inputs.length > 0) {
+
             inputs.forEach(inp => {
 
                 query += `${inp}=${input[inp]}&`
             });
+
         } else {
+
             query = ''
+            
         }
 
         axios[api[0].method](`http://localhost:43401/${req.params.API}?${query}`).then((response) => {
