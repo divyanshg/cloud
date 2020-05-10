@@ -29,7 +29,7 @@ app.get('/:API', (req, res) => {
         if (err) throw err;
 
         var input = req.query
-        
+
         var inputs = JSON.parse(api[0].inputs)
 
         var query = ""
@@ -55,7 +55,7 @@ app.get('/:API', (req, res) => {
 
         }).catch((error) => {
 
-            console.log(error);
+            res.send(error.data)
 
         })
     })
