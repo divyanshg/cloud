@@ -37,7 +37,7 @@ app.get('/:API', (req, res) => {
         var query = ""
 
         inputs.forEach(inp => {
-            query += `${inp}=${input.inp}&`
+            query += `${inp}=${input[inp]}&`
         });
 
         console.log(query)
