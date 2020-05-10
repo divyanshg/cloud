@@ -2,10 +2,10 @@
 
 const prompt = require('prompt-sync')();
 
-const module = prompt("function name : ");
+var uModule = prompt("function name : ");
 
 var testFunction = async () => {
-    const mod = require(`./${module}`)
+    const mod = require(`./${uModule}`)
     await mod;
 
     console.log(mod.handler)
