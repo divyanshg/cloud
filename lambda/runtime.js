@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 
         axios[api[0].method]("http://localhost:43401/number?min=10&max=20").then((response) => {
 
-            res.send(response)
+            res.send(CircularJSON.stringify(response))
 
         }).catch((error) => {
 

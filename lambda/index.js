@@ -7,7 +7,7 @@ app.get('/number', async (req, res) => {
     
     var userEvent = {'max': input.max, 'min': input.min}
 
-    res.send(JSON.stringify(userModule.handler(userEvent, "something", null).toString()));
+    res.send(JSON.stringify(userModule.handler(userEvent, "something", null)));
 })
 
 app.listen(43401, () => {
