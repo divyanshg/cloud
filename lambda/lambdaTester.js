@@ -6,6 +6,7 @@ exports.runLambda = async (uModule, inputs, callback) => {
         const mod = require(`./${uModule}`)
         await mod;
 
+        console.log(mod.handler(inputs, callback))
         return mod.handler(inputs, callback)
 
     } catch (e) {
