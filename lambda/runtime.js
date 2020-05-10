@@ -22,11 +22,12 @@ app.set('subdomain offset', 1);
 
 app.get('/', (req, res) => {
 
+    var subDomains = req.subdomains;
+    
     con.query(`select * from cloudDB_apis where user = ${subDomains[1]} and name = ${subDomains[0]}`, async (err, api) => {
         if (err) throw err;
 
         var input = req.query
-        var subDomains = req.subdomains
         var userModule = require(`./${subDomains[1]}-${subDomains[0]}`);
         await userModule;
 
