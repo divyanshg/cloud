@@ -8,7 +8,7 @@ exports.runLambda = (uModule, inputs, callback) => {
         return String(mod.handler(inputs, callback))
 
     } catch (e) {
-       return "Cannot find lambda function"
+       return "Unable to load lambda function"
     }
 }
 
