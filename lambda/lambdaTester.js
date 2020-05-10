@@ -5,10 +5,10 @@ exports.runLambda = (uModule, inputs, callback) => {
         
         const mod = require(`./${uModule}`)
 
-        return String(mod.handler(inputs, callback))
+        return String(mod.handler(inputs, callback)) 
 
     } catch (e) {
-       return "Unable to load lambda function"
+       return "Unable to load lambda function <br> "+ e
     }
 }
 
