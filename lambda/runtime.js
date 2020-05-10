@@ -32,7 +32,10 @@ app.get('/', (req, res) => {
         await userModule;
         axios[api[0].method]("http://localhost:43401/number?min=10&max=20").then((response) => {
             res.send(response)
-        })
+        }).catch((error) => {
+            // handle error
+            console.log(error);
+          })
     })
 
 })
