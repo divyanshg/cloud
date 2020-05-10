@@ -6,7 +6,7 @@ exports.runLambda = async (uModule, inputs, callback) => {
         const mod = require(`./${uModule}`)
         await mod;
 
-        return JSON.stringify(mod.handler(JSON.parse(inputs), callback))
+        return mod.handler(inputs, callback)
 
     } catch (e) {
        return "Cannot find function"
